@@ -1,16 +1,14 @@
-# SQL Practice Project
-
-Файл: `SQL/SQL-Queries.sql`
-
-```sql
+-- =====================================================
 -- QA Portfolio
--- SQL Practice
+-- SQL Practice Project
 -- PostgreSQL
 -- Junior QA Engineer
+-- =====================================================
 
--- =========================================
+
+-- =====================================================
 -- 1. CREATE TABLES
--- =========================================
+-- =====================================================
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
@@ -30,9 +28,10 @@ CREATE TABLE orders (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
--- =========================================
+
+-- =====================================================
 -- 2. INSERT TEST DATA
--- =========================================
+-- =====================================================
 
 INSERT INTO users (name, email, age, city)
 VALUES
@@ -41,6 +40,7 @@ VALUES
 ('Olga Sokolova', 'olga@test.com', 25, 'Samara'),
 ('Pavel Ivanov', 'pavel@test.com', 41, 'Moscow'),
 ('Maria Volkova', 'maria@test.com', 30, 'Kazan');
+
 
 INSERT INTO orders (user_id, product_name, amount, status)
 VALUES
@@ -52,72 +52,96 @@ VALUES
 (5, 'Phone', 65000.00, 'delivered'),
 (2, 'USB Cable', 900.00, 'paid');
 
--- =========================================
--- 3. SELECT
--- =========================================
 
+-- =====================================================
+-- 3. SELECT
+-- =====================================================
+
+-- Получение всех пользователей
 SELECT *
 FROM users;
 
+-- Получение имени и email пользователей
 SELECT name, email
 FROM users;
 
--- =========================================
--- 4. WHERE
--- =========================================
 
+-- =====================================================
+-- 4. WHERE
+-- =====================================================
+
+-- Пользователи из Москвы
 SELECT *
 FROM users
 WHERE city = 'Moscow';
 
+-- Пользователи от 30 лет
 SELECT *
 FROM users
 WHERE age >= 30;
 
+-- Оплаченные заказы
 SELECT *
 FROM orders
 WHERE status = 'paid';
 
+-- Заказы дороже 10 000
 SELECT *
 FROM orders
 WHERE amount > 10000;
 
--- =========================================
--- 5. ORDER BY
--- =========================================
 
+-- =====================================================
+-- 5. ORDER BY
+-- =====================================================
+
+-- Пользователи по возрасту от младшего к старшему
 SELECT *
 FROM users
 ORDER BY age ASC;
 
+-- Пользователи по возрасту от старшего к младшему
 SELECT *
 FROM users
 ORDER BY age DESC;
 
+-- Заказы от самого дорогого к самому дешёвому
 SELECT *
 FROM orders
 ORDER BY amount DESC;
 
--- =========================================
--- 6. GROUP BY
--- =========================================
 
-SELECT city, COUNT(*) AS users_count
+-- =====================================================
+-- 6. GROUP BY
+-- =====================================================
+
+-- Количество пользователей по городам
+SELECT
+    city,
+    COUNT(*) AS users_count
 FROM users
 GROUP BY city;
 
-SELECT status, COUNT(*) AS orders_count
+-- Количество заказов по статусам
+SELECT
+    status,
+    COUNT(*) AS orders_count
 FROM orders
 GROUP BY status;
 
-SELECT user_id, SUM(amount) AS total_amount
+-- Общая сумма заказов каждого пользователя
+SELECT
+    user_id,
+    SUM(amount) AS total_amount
 FROM orders
 GROUP BY user_id;
 
--- =========================================
--- 7. JOIN
--- =========================================
 
+-- =====================================================
+-- 7. JOIN
+-- =====================================================
+
+-- Пользователь + его заказы
 SELECT
     users.name,
     users.email,
@@ -128,6 +152,8 @@ FROM users
 JOIN orders
     ON users.id = orders.user_id;
 
+
+-- Только оплаченные заказы с данными пользователя
 SELECT
     users.name,
     orders.product_name,
@@ -137,6 +163,8 @@ JOIN orders
     ON users.id = orders.user_id
 WHERE orders.status = 'paid';
 
+
+-- Общая сумма заказов каждого пользователя
 SELECT
     users.name,
     SUM(orders.amount) AS total_orders
@@ -146,66 +174,99 @@ JOIN orders
 GROUP BY users.name
 ORDER BY total_orders DESC;
 
--- =========================================
--- 8. INSERT
--- =========================================
 
+-- =====================================================
+-- 8. LEFT JOIN
+-- =====================================================
+
+-- Количество заказов каждого пользователя
+SELECT
+    users.name,
+    COUNT(orders.id) AS orders_count
+FROM users
+LEFT JOIN orders
+    ON users.id = orders.user_id
+GROUP BY users.name
+ORDER BY orders_count DESC;
+
+
+-- =====================================================
+-- 9. INSERT
+-- =====================================================
+
+-- Создание тестового пользователя
 INSERT INTO users (name, email, age, city)
-VALUES ('Test User', 'testuser@test.com', 27, 'Perm');
+VALUES (
+    'Test User',
+    'testuser@test.com',
+    27,
+    'Perm'
+);
 
+-- Проверка создания пользователя
 SELECT *
 FROM users
 WHERE email = 'testuser@test.com';
 
--- =========================================
--- 9. UPDATE
--- =========================================
 
+-- =====================================================
+-- 10. UPDATE
+-- =====================================================
+
+-- Изменение города тестового пользователя
 UPDATE users
 SET city = 'Ufa'
 WHERE email = 'testuser@test.com';
 
+-- Проверка изменения
 SELECT *
 FROM users
 WHERE email = 'testuser@test.com';
 
+
+-- Изменение статуса заказа
 UPDATE orders
 SET status = 'delivered'
 WHERE id = 3;
 
+-- Проверка изменения статуса
 SELECT *
 FROM orders
 WHERE id = 3;
 
--- =========================================
--- 10. DELETE
--- =========================================
 
+-- =====================================================
+-- 11. DELETE
+-- =====================================================
+
+-- Удаление тестового пользователя
 DELETE FROM users
 WHERE email = 'testuser@test.com';
 
+-- Проверка удаления
+-- Ожидаемый результат: 0 строк
 SELECT *
 FROM users
 WHERE email = 'testuser@test.com';
 
--- =========================================
--- 11. QA DATA CHECKS
--- =========================================
+
+-- =====================================================
+-- 12. QA DATA CHECKS
+-- =====================================================
 
 -- Проверка пользователя по email
-
 SELECT *
 FROM users
 WHERE email = 'anna@test.com';
 
--- Проверка заказа по ID
 
+-- Проверка заказа по ID
 SELECT *
 FROM orders
 WHERE id = 1;
 
--- Проверка связи пользователя и заказа
 
+-- Проверка связи пользователя и заказа
 SELECT
     users.name,
     users.email,
@@ -217,18 +278,24 @@ JOIN orders
     ON users.id = orders.user_id
 WHERE orders.id = 1;
 
--- Проверка количества заказов пользователя
 
+-- Проверка количества заказов каждого пользователя
 SELECT
     users.name,
     COUNT(orders.id) AS orders_count
 FROM users
 LEFT JOIN orders
     ON users.id = orders.user_id
-GROUP BY users.name;
+GROUP BY users.name
+ORDER BY orders_count DESC;
 
--- Проверка дублей email
 
+-- =====================================================
+-- 13. DATA VALIDATION
+-- =====================================================
+
+-- Проверка дублирующихся email
+-- Ожидаемый результат: 0 строк
 SELECT
     email,
     COUNT(*) AS count
@@ -236,36 +303,21 @@ FROM users
 GROUP BY email
 HAVING COUNT(*) > 1;
 
--- Проверка заказов с некорректной суммой
 
+-- Проверка заказов с нулевой или отрицательной суммой
+-- Ожидаемый результат: 0 строк
 SELECT *
 FROM orders
 WHERE amount <= 0;
 
--- Проверка заказов с неизвестным статусом
 
+-- Проверка заказов с неизвестным статусом
+-- Ожидаемый результат: 0 строк
 SELECT *
 FROM orders
-WHERE status NOT IN ('new', 'paid', 'delivered', 'cancelled');
-```
-
-## Что этот проект показывает
-
-* создание связанных таблиц;
-* `PRIMARY KEY`;
-* `FOREIGN KEY`;
-* тестовые данные;
-* `SELECT`;
-* `WHERE`;
-* `ORDER BY`;
-* `GROUP BY`;
-* агрегатные функции;
-* `JOIN`;
-* `LEFT JOIN`;
-* `INSERT`;
-* `UPDATE`;
-* `DELETE`;
-* проверки данных с точки зрения QA;
-* поиск дублей;
-* проверку некорректных значений;
-* проверку связей между таблицами.
+WHERE status NOT IN (
+    'new',
+    'paid',
+    'delivered',
+    'cancelled'
+);
