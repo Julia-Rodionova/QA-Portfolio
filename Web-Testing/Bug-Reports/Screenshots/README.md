@@ -1,0 +1,2 @@
+# Screenshots — Bug Reports
+
