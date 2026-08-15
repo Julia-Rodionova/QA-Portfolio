@@ -33,14 +33,13 @@
 
 Корректное значение Telegram не принимается системой.
 
-![Фактический результат — ошибка валидации поля Telegram](Screenshots/BUG-005-Actual-Result.png)
+<img src="Screenshots/BUG-005-Actual-Result.png" width="700" alt="Фактический результат — ошибка валидации поля Telegram">
 
 ## ✅ Ожидаемый результат
 
 Поле «Telegram» принимает корректно введённое значение без отображения сообщения об ошибке валидации.
 
-![Ожидаемый результат — корректное поле Telegram](Screenshots/BUG-005-Expected-Result.png)
-
+<img src="Screenshots/BUG-005-Expected-Result.png" width="700" alt="Ожидаемый результат — корректное поле Telegram">
 ## 📎 Источник
 
 Дефект зарегистрирован в YouGile под ID **ETA-43** в рамках ручного тестирования веб-приложения Hitch.
