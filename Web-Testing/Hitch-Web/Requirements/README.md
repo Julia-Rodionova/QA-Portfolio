@@ -1,1 +1,3 @@
-Requirements/README.md
+# Requirements
+
+Требования к веб-приложению Hitch.
