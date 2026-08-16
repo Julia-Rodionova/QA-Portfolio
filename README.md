@@ -1,4 +1,4 @@
-# QA Portfolio --- Юлия Родионова
+# QA Portfolio — Юлия Родионова
 
 ### Junior QA Engineer \| Manual QA \| Web \| API \| SQL \| Test Design
 
