@@ -29,7 +29,8 @@
 
 ### 🎥 Видеодоказательство
 
-[▶️ Посмотреть воспроизведение дефекта](Videos/BUG-008-Actual-Result.mp4)
+<video src="Videos/BUG-008-Actual-Result.mp4" controls width="700">
+</video>
 
 ## ✅ Ожидаемый результат
 
