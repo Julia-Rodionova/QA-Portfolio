@@ -309,6 +309,6 @@ QA-Portfolio/
 **Юлия Родионова**  
 Junior QA Engineer
 
-- 📧 Email: `missis.juliarodionova@yandex.ru`
-- 💬 Telegram: `@lyulchik_r`
-- 💻 GitHub: Julia-Rodionova
+- 📧 Email: [missis.juliarodionova@yandex.ru](mailto:missis.juliarodionova@yandex.ru)
+- 💬 Telegram: [@lyulchik_r](https://t.me/lyulchik_r)
+- 💻 GitHub: [Julia-Rodionova](https://github.com/Julia-Rodionova)
