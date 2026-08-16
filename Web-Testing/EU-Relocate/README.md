@@ -167,4 +167,88 @@ EU-Relocate — сервис, помогающий IT-специалистам �
 После внесения изменений также проверялась связанная функциональность приложения.
 
 - [👁 Просмотреть результаты в GitHub](Retest-Regression/Retest-Regression-Results.md)
-- [📊
+- [📊 Скачать Excel](Retest-Regression/Retest-Regression-Results.xlsx)
+- [🔄 Открыть раздел Retest & Regression](Retest-Regression/)
+
+---
+
+## 🛠 Инструменты и техники
+
+В проекте применялись:
+
+- Manual Testing;
+- Functional Testing;
+- Positive Testing;
+- Negative Testing;
+- UI Testing;
+- Form Testing;
+- Validation Testing;
+- Regression Testing;
+- Retesting;
+- Test Cases;
+- Bug Reports;
+- анализ требований;
+- тестирование бизнес-логики;
+- анализ жизненного цикла дефектов.
+
+---
+
+## 📁 Структура проекта
+
+```text
+EU-Relocate/
+│
+├── README.md
+│
+├── Requirements/
+│   ├── README.md
+│   └── EU-Relocate-Requirements.pdf
+│
+├── Test-Cases/
+│   ├── README.md
+│   ├── Main-Page-Test-Cases.md
+│   ├── Main-Page-Test-Cases.xlsx
+│   ├── Country-Quiz-Test-Cases.md
+│   └── Country-Quiz-Test-Cases.xlsx
+│
+├── Bug-Reports/
+│   ├── README.md
+│   ├── BUG-001-Email-Validation.md
+│   ├── BUG-002-Question-Type-Not-Saved.md
+│   ├── BUG-003-Consultation-Form-Submission.md
+│   ├── BUG-004-Contacts-Navigation.md
+│   ├── BUG-005-Radio-Button-Multiple-Selection.md
+│   ├── BUG-006-Incorrect-Country-Quiz-Result.md
+│   └── Videos/
+│       └── BUG-006-Incorrect-Country-Quiz-Result.mp4
+│
+└── Retest-Regression/
+    ├── README.md
+    ├── Retest-Regression-Results.md
+    └── Retest-Regression-Results.xlsx
+```
+
+---
+
+## 🎯 Что демонстрирует проект
+
+Проект демонстрирует практические навыки:
+
+- анализа требований;
+- разработки и выполнения тест-кейсов;
+- определения Expected Result и Actual Result;
+- функционального тестирования веб-приложений;
+- позитивного и негативного тестирования;
+- тестирования форм;
+- проверки валидации;
+- UI-тестирования;
+- тестирования навигации;
+- проверки бизнес-логики;
+- поиска и документирования дефектов;
+- составления баг-репортов;
+- работы с видео воспроизведения дефекта;
+- анализа отклонённых баг-репортов;
+- повторного тестирования;
+- регрессионного тестирования;
+- переоткрытия дефектов;
+- работы с жизненным цик
