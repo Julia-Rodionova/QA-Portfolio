@@ -32,6 +32,11 @@
 <video src="Videos/BUG-008-Actual-Result.mp4" controls width="700">
 </video>
 
+
+https://github.com/user-attachments/assets/49189bd5-47a3-43c6-9c1f-65978fcbde6c
+
+
+
 ## ✅ Ожидаемый результат
 
 После нажатия кнопки «Отказаться» появляется сообщение об отказе от предложения.
